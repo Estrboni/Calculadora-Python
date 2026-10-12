@@ -18,7 +18,30 @@ Este proyecto es una calculadora básica desarrollada en Python que permite real
    ```bash
    git clone https://github.com/TU-USUARIO/proyecto-calculadora.git
 
-#programador2
+---
+
+## 🗂️ Mapeo de Funciones y Menú Interactivo (Programador 2)
+
+En esta fase se introdujo un patrón de diseño basado en **diccionarios de despacho (mapping)** para asociar la opción seleccionada por el usuario directamente con su respectiva función matemática, optimizando la legibilidad y escalabilidad del código.
+
+### 🛠️ Componentes Principales:
+- **`calcular(operacion, a, b)`**: Función centralizadora que utiliza un diccionario interno (`operaciones`) para mapear las opciones del menú con las funciones aritméticas (`sumar`, `restar`, `multiplicar`, `dividir`).
+- **Interfaz de selección numérica**: Permite al usuario elegir la operación mediante un menú en consola (`1-4`) antes de solicitar los operandos.
+
+### 💻 Ejemplo de Implementación del Mapeo:
+```python
+def calcular(operacion, a, b):
+    operaciones = {
+        "1": sumar,
+        "2": restar,
+        "3": multiplicar,
+        "4": dividir
+    }
+    funcion_seleccionada = operaciones[operacion]
+    return funcion_seleccionada(a, b)
+
+print("1. Sumar | 2. Restar | 3. Multiplicar | 4. Dividir")
+opcion = input("Elige una opcion (1-4): ")
 
 ## 🧩 Arquitectura Modular (Programador 3)
 
