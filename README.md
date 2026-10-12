@@ -43,6 +43,8 @@ def calcular(operacion, a, b):
 print("1. Sumar | 2. Restar | 3. Multiplicar | 4. Dividir")
 opcion = input("Elige una opcion (1-4): ")
 
+```
+
 ## 🧩 Arquitectura Modular (Programador 3)
 
 En esta fase se implementó una **estructura modular** para desacoplar la lógica de entrada de datos y la visualización de resultados, aplicando principios de código limpio y separación de responsabilidades.
