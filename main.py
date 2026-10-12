@@ -77,4 +77,4 @@ def mostrar_todos_los_resultados(a, b):
     print("-> Division:", dividir(a, b))
 
 num1, num2 = obtener_datos()
-mostrar_todos_los_resultados(num1, num2)ss
+mostrar_todos_los_resultados(num1, num2)
