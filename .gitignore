@@ -25,3 +25,12 @@ env/
 *.egg-info/
 dist/
 build/
+
+# Ignorar archivos de IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
