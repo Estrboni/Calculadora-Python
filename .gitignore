@@ -9,3 +9,19 @@ _pycache_/
 # Ignorar archivos de sistema
 .DS_Store
 Thumbs.db
+
+# Ignorar archivos compilados de Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Ignorar entornos virtuales
+venv/
+ENV/
+env/
+
+# Ignorar archivos de distribución
+*.egg-info/
+dist/
+build/
