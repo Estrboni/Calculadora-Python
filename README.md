@@ -1,4 +1,3 @@
-\###Calculadora Básica de Python
 # 🧮 Calculadora Básica en Python
 
 ## Descripción
@@ -19,3 +18,6 @@ Este proyecto es una calculadora básica desarrollada en Python que permite real
    ```bash
    git clone https://github.com/TU-USUARIO/proyecto-calculadora.git
 
+#programador2
+
+#programador3
