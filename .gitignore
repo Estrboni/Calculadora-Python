@@ -1,0 +1,11 @@
+# Ignorar archivos de confuguración local
+*.env
+*.log
+
+# Ignorar carpetas de dependencias
+node_modules/
+_pycache_/
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
