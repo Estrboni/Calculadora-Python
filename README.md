@@ -1,14 +1,13 @@
-# 🧮 Calculadora Básica en Python
+# 🧮 MultiCalculadora en Python
 
 ## Descripción
-Este proyecto es una calculadora básica desarrollada en Python que permite realizar operaciones matemáticas fundamentales: suma, resta, multiplicación y división.
+Este proyecto es una calculadora básica desarrollada en Python que permite realizar y mostrar de forma simultánea las operaciones matemáticas fundamentales (suma, resta, multiplicación y división) para dos números ingresados por el usuario, utilizando un enfoque recursivo para la ejecución continua del programa.
 
 ## Características
-- Suma de dos números
-- Resta de dos números
-- Multiplicación de dos números
-- División con manejo de errores (división por cero)
-- Interfaz de menú interactivo por consola
+- Operaciones aritméticas básicas: suma, resta, multiplicación y división.
+- Ejecución simultánea de todas las operaciones para cada par de números ingresados.
+- Interfaz por consola limpia y estructurada utilizando `f-strings` y saltos de línea (`\n`).
+- Bucle de ejecución continua implementado mediante **recursividad** (sin emplear bucles `while`).
 
 ## Requisitos
 - Python 3.6 o superior
@@ -16,56 +15,63 @@ Este proyecto es una calculadora básica desarrollada en Python que permite real
 ## Instalación
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/TU-USUARIO/proyecto-calculadora.git
+   git clone https://github.com/Estrboni/Calculadora-Python.git
+   ```
 
 ---
 
-## 🗂️ Mapeo de Funciones y Menú Interactivo (Programador 2)
+## 🔢 Funciones Matemáticas (Programador 1)
 
-En esta fase se introdujo un patrón de diseño basado en **diccionarios de despacho (mapping)** para asociar la opción seleccionada por el usuario directamente con su respectiva función matemática, optimizando la legibilidad y escalabilidad del código.
+En esta fase se implementaron las funciones aritméticas básicas de forma independiente, aplicando el principio de responsabilidad única.
 
 ### 🛠️ Componentes Principales:
-- **`calcular(operacion, a, b)`**: Función centralizadora que utiliza un diccionario interno (`operaciones`) para mapear las opciones del menú con las funciones aritméticas (`sumar`, `restar`, `multiplicar`, `dividir`).
-- **Interfaz de selección numérica**: Permite al usuario elegir la operación mediante un menú en consola (`1-4`) antes de solicitar los operandos.
+- **`sumar(a, b)`**: Retorna la suma de los dos operandos.
+- **`restar(a, b)`**: Retorna la resta de los dos operandos.
+- **`multiplicar(a, b)`**: Retorna la multiplicación de los dos operandos.
+- **`dividir(a, b)`**: Retorna la división de los dos operandos.
 
-### 💻 Ejemplo de Implementación del Mapeo:
+### 💻 Ejemplo de Implementación:
 ```python
-def calcular(operacion, a, b):
-    operaciones = {
-        "1": sumar,
-        "2": restar,
-        "3": multiplicar,
-        "4": dividir
-    }
-    funcion_seleccionada = operaciones[operacion]
-    return funcion_seleccionada(a, b)
+def sumar(a, b):
+    return a + b
 
-print("1. Sumar | 2. Restar | 3. Multiplicar | 4. Dividir")
-opcion = input("Elige una opcion (1-4): ")
+def restar(a, b):
+    return a - b
 
+def multiplicar(a, b):
+    return a * b
+
+def dividir(a, b):
+    return a / b
 ```
 
-## 🧩 Arquitectura Modular (Programador 3)
+---
 
-En esta fase se implementó una **estructura modular** para desacoplar la lógica de entrada de datos y la visualización de resultados, aplicando principios de código limpio y separación de responsabilidades.
+## 💻 Lógica Principal y Salida de Datos (Programadores 2 y 3)
 
-### Nuevas Funciones Incorporadas:
-- **`obtener_datos()`**: Encargada de capturar los valores numéricos ingresados por el usuario de forma independiente.
-- **`mostrar_todos_los_resultados(a, b)`**: Centraliza la ejecución simultánea de todas las operaciones aritméticas básicas y muestra el reporte completo en consola.
+En esta fase se integró la interacción con el usuario, la captura de datos y la visualización de resultados mediante `f-strings`, incorporando además un mecanismo de llamada recursiva para mantener el programa en ejecución continua.
 
-### 💻 Ejemplo de Implementación del Módulo:
+### 🛠️ Componentes Principales:
+- **`iniciar()`**: Función centralizadora que solicita los valores numéricos, procesa las operaciones simultáneamente, imprime el reporte estructurado y se autoinvoca para reiniciar el ciclo de ejecución.
+
+### 💻 Ejemplo de Implementación:
 ```python
-def obtener_datos():
-    n1 = float(input("Primer numero: "))
-    n2 = float(input("Segundo numero: "))
-    return n1, n2
+def iniciar():
+    print("\n--- Bienvenido a la MultiCalculadora ---")
+    
+    # Entrada de datos
+    num1 = float(input("Ingresa el primer numero: "))
+    num2 = float(input("Ingresa el segundo numero: "))
 
-def mostrar_todos_los_resultados(a, b):
-    print("Resultados:")
-    print("-> Suma:", sumar(a, b))
-    print("-> Resta:", restar(a, b))
-    print("-> Multiplicacion:", multiplicar(a, b))
-    print("-> Division:", dividir(a, b))
+    # Salida de datos usando f-strings y \n
+    print(f"\n-> Suma: {sumar(num1, num2)}")
+    print(f"-> Resta: {restar(num1, num2)}")
+    print(f"-> Multiplicacion: {multiplicar(num1, num2)}")
+    print(f"-> Division: {dividir(num1, num2)}\n")
+    
+    # Bucle infinito mediante recursividad
+    iniciar()
 
-num1, num2 = obtener_datos()
-mostrar_todos_los_resultados(num1, num2)
+# Llamada inicial para arrancar el programa
+iniciar()
+```
